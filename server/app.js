@@ -1,8 +1,17 @@
 const express = require("express")
-
+const mongoose = require('mongoose')
 const app = express()
+const db = 'mongodb+srv://mernstack:admin@cluster0.rhal0li.mongodb.net/mernstack'
 
+mongoose.connect(db,{
+    useNewUrlParser:true,
+  
+}).then(()=>{
 
+    console.log("Connection Successfull")
+}).catch((err)=>{
+    console.log(err)
+})
 const middleware = (req,res,next)=>{
     console.log("Hello i am middleware")
     next()
